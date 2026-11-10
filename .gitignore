@@ -1,0 +1,12 @@
+# Ignore node modules (folders)
+node_modules/
+
+*   # Ignore environment variable files containing secrets
+.env
+
+# Ignore specific OS system files
+.DS_Store
+Thumbs.db
+
+# Ignore all log files
+*.log
