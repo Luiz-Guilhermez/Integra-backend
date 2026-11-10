@@ -1647,33 +1647,6 @@ app.put('/conversas/:id/mensagens/:mensagemId', auth, async (req, res) => {
     }
 });
 
-async function testarConexao() {
-    console.log('Testando conexão com o PostgreSQL...');
-
-    try {
-        const resultado = await db.query(`
-            SELECT
-                NOW() AS horario,
-                current_database() AS banco,
-                current_user AS usuario
-        `);
-
-        console.log('Conexão estabelecida!');
-        console.log('Banco:', resultado.rows[0].banco);
-        console.log('Usuário:', resultado.rows[0].usuario);
-        console.log('Horário:', resultado.rows[0].horario);
-
-    } catch (erro) {
-        console.error('Falha na conexão:', erro);
-
-    } finally {
-        await db.end();
-    }
-}
-
-testarConexao();
-
-
 app.listen(3000, () => {
     console.log('Servidor rodando na porta 3000');
 });
