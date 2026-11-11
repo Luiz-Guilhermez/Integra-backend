@@ -1647,6 +1647,13 @@ app.put('/conversas/:id/mensagens/:mensagemId', auth, async (req, res) => {
     }
 });
 
+app.get('/health', (req, res) => {
+    res.status(200).json({
+        status: 'online',
+        mensagem: 'Backend Integra+ funcionando!'
+    });
+});
+
 app.listen(3000, () => {
     console.log('Servidor rodando na porta 3000');
 });
